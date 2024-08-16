@@ -1,0 +1,17 @@
+.headerContainer {
+  width: 96%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(160, 136, 104);
+  padding: 20px;
+}
+
+img {
+  width: 100px;
+}
+
+input {
+  height: 30px;
+  width: 300px;
+}

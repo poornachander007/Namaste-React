@@ -112,3 +112,82 @@ Specifies the origin of a script and allows cross-origin requests. Helps prevent
 
 `-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
 `-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
+
+## 1. What is JSX?
+
+**JSX** is a syntax extension for JavaScript that resembles HTML. It's primarily used with React to describe the structure of a user interface. While it looks like HTML, it's actually transformed into regular JavaScript function calls before the browser sees it.
+
+## 2. Superpowers of JSX
+
+- **Readability:** JSX code often looks more like HTML, making it easier to understand.
+- **Conciseness:** It allows you to write UI structures directly in JavaScript, reducing code verbosity.
+- **Dynamic Content:** JSX can easily embed JavaScript expressions within it, enabling dynamic rendering of content.
+- **Component Composition:** JSX promotes creating reusable components, improving code organization and maintainability.
+
+## 3. Role of type attribute in script tag? What options can I use there?
+
+The **type** attribute in a script tag specifies the scripting language used in the script. Common options include:
+
+- **text/javascript:** The default type, indicating JavaScript code.
+- **module:** Specifies an ES6 module script.
+- **application/javascript:** A more specific type for JavaScript.
+
+## 4.  {TitleComponent} vs {<TitleComponent/>} vs {<TitleComponent></TitleComponent>} in JSX
+
+- **{TitleComponent}**: This will render the output of the `TitleComponent` function or class directly. It's often used when the component returns a primitive value (like a string).
+- **{<TitleComponent/>}**: This is the correct way to render a React component. It creates an instance of the `TitleComponent` and includes it in the JSX output.
+- **{<TitleComponent></TitleComponent>}**: While technically valid, this is redundant and unnecessary. The closing tag is implied in JSX.
+
+**In summary:** Use `{<TitleComponent/>}` to render React components correctly.
+
+## 5. React.createElement vs JSX
+
+- **React.createElement** is a function that creates React elements. It's the underlying mechanism behind JSX.
+- **JSX** is a syntax extension for JavaScript that looks like HTML. It's a more convenient way to write React elements.
+
+**Example:**
+
+```javascript
+// Using React.createElement
+const element = React.createElement(
+  "div",
+  { className: "myDiv" },
+  "Hello, world!"
+);
+
+// Using JSX
+const element = <div className="myDiv">Hello, world!</div>;
+```
+
+Both create the same React element, but JSX is more readable.
+
+## 6. Benefits of JSX
+
+- **Readability:** JSX looks like HTML, making UI structure easier to understand.
+- **Conciseness:** It's more concise than using `React.createElement`.
+- **Dynamic content:** JSX allows embedding JavaScript expressions within it.
+- **Component-based structure:** Encourages creating reusable components.
+
+## 7. Behind the Scenes of JSX
+
+JSX is transformed into regular JavaScript function calls during the build process using tools like Babel. This process converts JSX syntax into `React.createElement` calls.
+
+## 8. Babel & Parcel role in JSX
+
+- **Babel:** Transpiles JSX into `React.createElement` calls, making it understandable by JavaScript engines.
+- **Parcel:** Bundles your code, including JSX, and often uses Babel for transformation.
+
+## 9. Components
+
+**Components** are reusable building blocks of React applications. They can be either functional or class-based. They encapsulate UI and logic, making code modular and maintainable.
+
+## 10. Functional Components
+
+**Functional components** are simpler components defined as JavaScript functions. They are typically used for stateless components that don't require internal state management. They can be used with hooks for state management.
+
+## 11. Composing Components
+
+**Composing Components** involves nesting components within other components to create complex UIs. This promotes reusability and modularity. React encourages a component-based architecture where you build large UIs by combining smaller components.
+
+`-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
+`-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
