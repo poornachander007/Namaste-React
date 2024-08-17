@@ -1,92 +1,100 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./App.css";
+import { AllRestaurants } from "./data";
 
-const heading = <h1>Heading.....</h1>;
-
-const Title = () => {
-  console.log(`Title Compo hit....`);
-  console.log(document.getElementById("root"));
-  return (
-    <div className="title_container">
-      {heading}
-      <p>I'm paragraph.....</p>
-    </div>
-  );
-};
-
-const ParentComponent = () => {
-  return (
-    <div className="parent_container">
-      <Title />
-      <button type="button">Iam button </button>
-    </div>
-  );
-};
-
-const nestedHeaderReactElement = React.createElement(
-  "div",
-  { className: "title" },
-  [
-    React.createElement("h1", {}, "This is.... H1 from React.createElement"),
-    React.createElement("h2", {}, "This is.... H2 from React.createElement"),
-    React.createElement("h3", {}, "This is.... H3 from React.createElement"),
-  ]
-);
-
-const nestedHeaderJsxElement = (
-  <div>
-    <h1>This is.... H1 from JsxElement</h1>
-    <h2>This is.... H2 from JsxElement</h2>
-    <h3>This is.... H3 from JsxElement</h3>
-  </div>
-);
-
-const NestedHeaderFunctionComponent = () => {
-  return (
-    <div>
-      <h1>This is.... H1 from Function-Component</h1>
-      <h2>This is.... H2 from Function-Component</h2>
-      <h3>This is.... H3 from Function-Component</h3>
-    </div>
-  );
-};
-
-const AllContainer = () => {
-  return (
-    <div>
-      {nestedHeaderReactElement}
-      <hr />
-      {nestedHeaderJsxElement}
-      <hr />
-      <NestedHeaderFunctionComponent />
-    </div>
-  );
-};
+// const resList = () => {
+//   let resultList = [];
+//   for (var i = 0; i < 12; i++) {
+//     resultList.push(i);
+//   }
+//   return resultList;
+// };
 
 const Header = () => {
   return (
-    <div className="headerContainer">
-      <div className="logoContainer">
+    <div className="header">
+      <div className="logo-container">
         <img
-          src="https://th.bing.com/th/id/OIP.vR3c8gJDtTZuFFJLa3nHcwHaHC?rs=1&pid=ImgDetMain"
+          className="logo"
           alt="logo"
+          src="https://clipground.com/images/food-company-logo.png"
         />
       </div>
-      <div className="searchContainer">
-        <input type="search" />
+      <div className="nav-items-container">
+        <ul className="nav-items-list">
+          <li className="nav-item">Home</li>
+          <li className="nav-item">About Us</li>
+          <li className="nav-item">Contact Us</li>
+          <li className="nav-item">Cart</li>
+        </ul>
       </div>
-      <div className="userIconContainer">
-        <img
-          src="https://static.vecteezy.com/system/resources/previews/008/302/462/original/eps10-grey-user-icon-or-logo-in-simple-flat-trendy-modern-style-isolated-on-white-background-free-vector.jpg"
-          alt="userIcon"
-        />
-      </div>
+    </div>
+  );
+};
+
+const Search = () => {
+  return <div className="search">Search</div>;
+};
+
+const Card = (props) => {
+  const { resData } = props;
+  console.log(resData.data);
+  const {
+    cloudinaryImageId,
+    name,
+    cuisines,
+    avgRating,
+    costForTwo,
+    deliveryTime,
+  } = resData.data;
+
+  return (
+    <div className="card">
+      <img
+        className="card-image"
+        alt="food-image"
+        src={
+          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+          cloudinaryImageId
+        }
+      />
+      <h4>{name}</h4>
+      <h4>{avgRating} stars</h4>
+      <p>{cuisines.join(", ")}</p>
+      <h4>$ {costForTwo / 100} for two</h4>
+      <h4>{deliveryTime} minuts</h4>
+    </div>
+  );
+};
+
+const CardsList = () => {
+  return (
+    <div className="cards-container">
+      {AllRestaurants.map((obj) => (
+        <Card key={obj.data.id} resData={obj} />
+      ))}
+    </div>
+  );
+};
+
+const Body = () => {
+  return (
+    <div className="body">
+      <Search />
+      <CardsList />
+    </div>
+  );
+};
+
+const AppLayout = () => {
+  return (
+    <div className="app">
+      <Header />
+      <Body />
     </div>
   );
 };
 
 const rootElement = ReactDOM.createRoot(document.getElementById("root"));
-// rootElement.render(<ParentComponent />);
-// rootElement.render(<AllContainer />);
-rootElement.render(<Header />);
+rootElement.render(<AppLayout />);
