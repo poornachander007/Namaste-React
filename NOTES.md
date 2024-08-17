@@ -225,3 +225,39 @@ JSX is transformed into regular JavaScript function calls during the build proce
 
 `-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
 `-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
+
+## 1. Named Export, Default Export, and `*` as Export
+
+- **Named Export:** Allows multiple values to be exported from a module with specific names.
+  - Example:
+    ```javascript
+    export const name = "Alice";
+    export const age = 30;
+    ```
+- **Default Export:** Allows exporting a single value from a module.
+  - Example:
+    ```javascript
+    export default function greet(name) {
+      console.log("Hello, " + name);
+    }
+    ```
+- **`*` as export:** Imports all named exports from a module.
+  - Example:
+    ```javascript
+    import * as utils from "./utils";
+    ```
+
+## 2. Importance of config.js file
+
+A `config.js` file typically stores configuration settings for an application. This includes API endpoints, database credentials, environment variables, and other settings that might vary between different environments (development, testing, production). It helps in managing and centralizing configuration details, making it easier to maintain and update.
+
+## 3. React Hooks
+
+React Hooks are functions that let you "hook into" React state and lifecycle features from functional components. They replaced the need for class components in many cases.
+
+## 4. Why do we need a useState Hook?
+
+The `useState` hook is used to manage state within functional components. It allows you to declare a state variable and a function to update it. This is crucial for building dynamic and interactive user interfaces in React.
+
+`-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
+`-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
