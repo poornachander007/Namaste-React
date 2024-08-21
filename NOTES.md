@@ -261,3 +261,62 @@ The `useState` hook is used to manage state within functional components. It all
 
 `-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
 `-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
+
+## 1. Microservice
+
+A microservice is a small, self-contained service that performs a specific task within a larger application. It's designed to be independently deployable and scalable.
+
+## 2. Monolith Architecture
+
+A monolithic architecture is a single, large application that contains all the components of a system. It's typically deployed as a single unit.
+
+## 3. Difference between Monolith and Microservice
+
+- **Monolith:** Single, large application; difficult to scale and maintain; changes require redeployment of the entire system.
+- **Microservice:** Small, independent services; easier to scale and maintain; changes can be deployed independently.
+
+## 4. useEffect Hook
+
+The `useEffect` hook is used to perform side effects in functional components. It allows you to fetch data, set up subscriptions, and manage DOM interactions.
+
+## 5. Optional Chaining
+
+Optional chaining is a JavaScript operator (?.), introduced in ES2020, that allows you to safely access nested object properties even if intermediate objects are null or undefined.
+
+## 6. Shimmer UI
+
+A shimmer UI is a placeholder or loading indicator that mimics the appearance of the final content. It provides a better user experience while data is loading.
+
+## 7. Difference between JS expression and JS statement
+
+- **Expression:** A unit of code that evaluates to a value.
+- **Statement:** A complete unit of code that performs an action.
+
+## 8. Conditional Rendering
+
+Conditional rendering allows you to render different UI elements based on conditions.
+
+```javascript
+function Greeting(props) {
+  const isLoggedIn = props.isLoggedIn;
+  if (isLoggedIn) {
+    return <p>Welcome, {props.user}!</p>;
+  }
+  return <p>Please log in.</p>;
+}
+```
+
+## 9. CORS
+
+Cross-Origin Resource Sharing (CORS) is a mechanism that allows web pages to make requests to servers on a different domain.
+
+## 10. async and await
+
+`async` and `await` keywords are used to simplify asynchronous operations in JavaScript, making the code more readable and easier to understand.
+
+## 11. `const json = await data.json();`
+
+This line of code is used to convert a response object (data) into a JSON object. The `await` keyword waits for the `data.json()` promise to resolve before continuing.
+
+`-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
+`-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
