@@ -59,7 +59,7 @@ div > ul {
   display: flex;
 }
 
-ul > li {
+.nav-item {
   margin: 10px;
   list-style: none;
   font-size: 22px;
@@ -84,8 +84,9 @@ ul > li {
 
 .card,
 .shimmer-card {
-  width: 23%;
-  /* height: 300px; */
+  width: 23vw;
+  height: 330px;
+  /* flex-grow: inherit; */
   padding: 1px;
   border-radius: 5px;
   margin: 5px;
@@ -126,4 +127,8 @@ p {
 .login-btn {
   padding: 10px 15px;
   margin-right: 5px;
+}
+
+.link-of-restaurant-card {
+  text-decoration: none;
 }

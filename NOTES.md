@@ -320,3 +320,53 @@ This line of code is used to convert a response object (data) into a JSON object
 
 `-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
 `-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
+
+## 1. Adding Images to React Apps
+
+**-----1. Using `import`:**
+
+```javascript
+import myImage from "./myImage.jpg";
+
+function MyComponent() {
+  return <img src={myImage} alt="My Image" />;
+}
+```
+
+**-----2. Using a public folder:**
+Place the image in a `public` folder and reference it directly:
+
+```javascript
+<img src="myImage.jpg" alt="My Image" />
+```
+
+**-----3. Using a CDN (Content Delivery Network):**
+
+```javascript
+<img src="https://example.com/myImage.jpg" alt="My Image" />
+```
+
+## 2. `console.log(useState())`
+
+This will log an array containing the current state value and a function to update it. For example:
+
+```javascript
+const [count, setCount] = useState(0);
+console.log(useState()); // Output: [0, function]
+```
+
+## 3. useEffect without Dependency Array
+
+If you don't provide a dependency array, `useEffect` will run after every render, potentially causing performance issues. To control when it runs, include dependencies in the array.
+
+## 4. SPA (Single-Page Application)
+
+An SPA is a web application that loads a single HTML page and dynamically updates the content without reloading the entire page.
+
+## 5. Client-Side vs. Server-Side Routing
+
+- **Client-Side Routing:** The routing logic is handled on the client-side using JavaScript. This allows for faster navigation within the application.
+- **Server-Side Routing:** The routing logic is handled on the server-side, and the entire page is reloaded for each navigation. This can be SEO-friendly but might have slower initial load times.
+
+`-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
+`-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`

@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import Card from "./Card";
+import RestaurantCard from "./Card";
 // import AllRestaurants from "../utils/mockData";
 import { FETCH_DATA_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   // const [listOfRestaurants, setAllRestaurants] = useState(AllRestaurants);
@@ -15,16 +16,22 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    console.log(FETCH_DATA_URL);
+    // console.log("https://corsproxy.io/?" + FETCH_DATA_URL);
+    // const response = await fetch(`https://proxy.cors.sh/${FETCH_DATA_URL}`);
     const response = await fetch(FETCH_DATA_URL);
     const json = await response.json();
-    const arrayOfObjects = json?.data?.cards?.splice(3);
+    // const arrayOfObjects = json?.data?.cards?.splice(3);
+    const arrayOfObjects =
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants;
     // const newArrayOfObjects = data?.data?.cards;
+    //------------------------------------
     setListOfRestaurants(arrayOfObjects);
     setFilteredRestaurants(arrayOfObjects);
+    // console.log(arrayOfObjects);
   };
 
-  return listOfRestaurants.length === 0 ? (
+  return listOfRestaurants.length == 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
@@ -32,7 +39,8 @@ const Body = () => {
         <button
           onClick={() => {
             const filteredList = listOfRestaurants.filter(
-              (restaurant) => restaurant.card.card.info.avgRating > 4.3
+              // (restaurant) => restaurant.card.card.info.avgRating > 4.3
+              (restaurant) => restaurant.info.avgRating > 4.3
             );
             setFilteredRestaurants(filteredList);
           }}
@@ -53,7 +61,8 @@ const Body = () => {
             type="button"
             onClick={(e) => {
               const filteredList = listOfRestaurants.filter((restaurant) =>
-                restaurant.card.card.info.name
+                // restaurant.card.card.info.name
+                restaurant.info.name
                   .toLowerCase()
                   .includes(searchInput.toLowerCase())
               );
@@ -65,10 +74,18 @@ const Body = () => {
         </div>
       </div>
       <div className="cards-container">
-        {filteredRestaurants.map((obj, index) => (
+        {filteredRestaurants.map((obj) => {
           // <Card key={obj.data.id} resData={obj} />
-          <Card key={index} resData={obj} />
-        ))}
+          return (
+            <Link
+              className="link-of-restaurant-card"
+              to={"restaurant/" + obj.info.id}
+              key={obj.info.id}
+            >
+              <RestaurantCard resData={obj} />
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
