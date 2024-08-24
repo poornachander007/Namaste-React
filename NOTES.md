@@ -370,3 +370,123 @@ An SPA is a web application that loads a single HTML page and dynamically update
 
 `-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
 `-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
+
+## React Router and Lifecycle Methods
+
+### 1. Nested Routes in React Router
+
+To create nested routes in React Router, you can use the `Route` component's `path` prop to define the path for the nested route. Here's an example:
+
+```javascript
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />}>
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+        </Route>
+      </Routes>
+    </Router>
+  );
+}
+```
+
+### 2. createHashRouter and createMemoryRouter
+
+- **createHashRouter:** Uses the URL hash (#) to manage routes, suitable for environments without server-side routing.
+- **createMemoryRouter:** Creates a router for testing or environments without a browser window.
+
+### 3. Lifecycle Method Order in Class-Based Components
+
+1. `constructor()`
+2. `static getDerivedStateFromProps()`
+3. `render()`
+4. `componentDidMount()`
+5. `componentDidUpdate()`
+6. `componentWillUnmount()`
+
+### 4. componentDidMount
+
+Used for side effects that should happen after the component is mounted to the DOM. For example, fetching data, setting up subscriptions, or initializing DOM elements.
+
+### 5. componentWillUnmount
+
+Used for cleanup operations before the component is unmounted from the DOM. For example, canceling timers, removing event listeners, or cleaning up subscriptions.
+
+```javascript
+class MyComponent extends React.Component {
+  componentDidMount() {
+    // Set up a timer
+    this.timer = setInterval(() => {
+      // Update state or perform other actions
+    }, 1000);
+  }
+
+  componentWillUnmount() {
+    // Clear the timer
+    clearInterval(this.timer);
+  }
+
+  render() {
+    // ...
+  }
+}
+```
+
+### 6. super(props) in Constructor
+
+Calling `super(props)` in a class component's constructor is essential to initialize the component's state and properties correctly. It ensures that the component inherits the correct behavior from its parent class.
+
+### 7. useEffect Callback Function Not Async
+
+The `useEffect` callback function cannot be directly async because it's called synchronously during rendering. To handle asynchronous operations within `useEffect`, you can use promises or async/await.
+
+```javascript
+useEffect(() => {
+  const fetchData = async () => {
+    const response = await fetch("https://api.example.com/data");
+    const data = await response.json();
+    // Do something with the data
+  };
+
+  fetchData();
+}, []);
+```
+
+`-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
+`-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
+
+## 1. When and why do we need lazy()?
+
+**lazy** is used to load components dynamically, improving initial load times and reducing bundle size. It's especially useful for large applications with many components.
+
+## 2. What is suspense?
+
+**Suspense** is a feature in React that allows you to declaratively handle loading states and errors when components are asynchronously loaded.
+
+## 3. Error: A component suspended while responding to synchronous input
+
+This error occurs when a component using `lazy` or `Suspense` tries to update the UI synchronously while still loading. Wrapping the update in `startTransition` tells React that the update is a non-urgent transition and can be delayed if necessary.
+
+## 4. Advantages and disadvantages of code splitting with lazy and Suspense
+
+**Advantages:**
+
+- Improved initial load times
+- Smaller bundle sizes
+- Better user experience with graceful degradation
+
+**Disadvantages:**
+
+- Increased complexity in some cases
+- Potential for performance overhead if not used carefully
+
+## 5. When and why do we need Suspense?
+
+Use Suspense when you want to handle loading states and errors for asynchronously loaded components. It provides a more declarative and intuitive way to manage component loading.
+
+`-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
+`-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`

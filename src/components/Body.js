@@ -5,6 +5,8 @@ import { FETCH_DATA_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 
+import useOnlineStatus from "../utils/useOnlineStatus";
+
 const Body = () => {
   // const [listOfRestaurants, setAllRestaurants] = useState(AllRestaurants);
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -30,6 +32,13 @@ const Body = () => {
     setFilteredRestaurants(arrayOfObjects);
     // console.log(arrayOfObjects);
   };
+
+  const onlineSatus = useOnlineStatus();
+
+  if (onlineSatus === false)
+    return (
+      <h1>Oops!!! Seems You are On Offline, Please Check your Internet...</h1>
+    );
 
   return listOfRestaurants.length == 0 ? (
     <Shimmer />
