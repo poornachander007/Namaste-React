@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import RestaurantCard from "./Card";
+import RestaurantCard from "./RestaurantCard";
 // import AllRestaurants from "../utils/mockData";
 import { FETCH_DATA_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
@@ -24,7 +24,7 @@ const Body = () => {
     const json = await response.json();
     // const arrayOfObjects = json?.data?.cards?.splice(3);
     const arrayOfObjects =
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+      json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
     // const newArrayOfObjects = data?.data?.cards;
     //------------------------------------
@@ -40,12 +40,14 @@ const Body = () => {
       <h1>Oops!!! Seems You are On Offline, Please Check your Internet...</h1>
     );
 
-  return listOfRestaurants.length == 0 ? (
+  // return listOfRestaurants.length === 0 ? (
+  return listOfRestaurants == [] ? (
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filters">
+      <div className="filters flex mx-[30px]">
         <button
+          className="my-3 px-3 rounded-lg border border-solid border-black"
           onClick={() => {
             const filteredList = listOfRestaurants.filter(
               // (restaurant) => restaurant.card.card.info.avgRating > 4.3
@@ -53,7 +55,6 @@ const Body = () => {
             );
             setFilteredRestaurants(filteredList);
           }}
-          className="filters-btn"
           type="button"
         >
           Top Rated Restaurants
@@ -61,12 +62,13 @@ const Body = () => {
         <div>
           <input
             value={searchInput}
-            className="searchInput"
+            className="searchInput m-3 px-3 rounded-lg border border-solid border-black"
             type="text"
             placeholder="Type here..."
             onChange={(e) => setSearchInput(e.target.value)}
           />
           <button
+            className="my-3 px-3 rounded-lg border border-solid border-black"
             type="button"
             onClick={(e) => {
               const filteredList = listOfRestaurants.filter((restaurant) =>
@@ -82,7 +84,7 @@ const Body = () => {
           </button>
         </div>
       </div>
-      <div className="cards-container">
+      <div className="cards-container m-4 flex flex-wrap">
         {filteredRestaurants.map((obj) => {
           // <Card key={obj.data.id} resData={obj} />
           return (

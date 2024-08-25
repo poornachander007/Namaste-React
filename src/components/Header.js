@@ -9,30 +9,30 @@ const Header = () => {
 
   const onlineStatus = useOnlineStatus();
   return (
-    <div className="header">
-      <div className="logo-container">
+    <div className="my-2 flex justify-between items-center bg-zinc-300">
+      <div className="logo-container m-2">
         {/* <img className="logo" alt="logo" src={LOGO_URL} /> */}
-        <img className="logo" alt="logo" src={LOGO_PATH} />
+        <img className="w-[100px] p-1" alt="logo" src={LOGO_PATH} />
         {/* <img className="logo" alt="logo" src={imagePath} /> */}
       </div>
-      <div className="nav-items-container">
-        <ul className="nav-items-list">
-          <li className="nav-item">
+      <div className="nav-items-container mx-4">
+        <ul className="flex">
+          <li className="m-3 text-purple-800 text-xl">
             Online Status {onlineStatus ? "✅" : "🛑"}
           </li>
-          <li className="nav-item">
+          <li className="m-3 text-purple-800 text-xl">
             <Link to={"/"}>Home</Link>
           </li>
-          <li className="nav-item">
+          <li className="m-3 text-purple-800 text-xl">
             <Link to={"/about"}>About Us</Link>
           </li>
-          <li className="nav-item">
+          <li className="m-3 text-purple-800 text-xl">
             <Link to={"/contact"}>Contact Us</Link>
           </li>
-          <li className="nav-item">
+          <li className="m-3 text-purple-800 text-xl">
             <Link to={"/grocery"}>Grocery</Link>
           </li>
-          <li className="nav-item">Cart</li>
+          <li className="m-3 text-purple-800 text-xl">Cart</li>
           {/* <li> */}
           <button
             onClick={() => {
@@ -40,7 +40,7 @@ const Header = () => {
                 ? setLoginState("Logout")
                 : setLoginState("Login");
             }}
-            className="login-btn"
+            className="login-btn m-3 px-2 pb-1 text-[#fc8019] text-xl border border-solid border-y-green-600 border-x-red-600 rounded-lg"
             type="button"
           >
             {loginState}

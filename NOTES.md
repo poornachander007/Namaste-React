@@ -490,3 +490,52 @@ Use Suspense when you want to handle loading states and errors for asynchronousl
 
 `-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
 `-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
+
+## 1. CSS Writing Styles
+
+**1.1 Inline CSS:** Directly embedded within HTML elements using the `style` attribute.
+
+```html
+<p style="color: blue; font-size: 18px;">This is inline CSS</p>
+```
+
+**1.2 Internal CSS:** Defined within a `<style>` tag in the `<head>` section of an HTML document.
+
+```html
+<head>
+  <style>
+    p {
+      color: red;
+      font-size: 20px;
+    }
+  </style>
+</head>
+```
+
+**1.3 External CSS:** Linked to an HTML document using the `<link>` tag.
+
+```html
+<link rel="stylesheet" href="styles.css" />
+```
+
+## 2. Tailwind CSS Configuration
+
+1. **Create a `tailwind.config.js` file** in your project's root directory.
+2. **Configure the `content` option:** Specify the paths to your HTML, JSX, or Vue files where Tailwind CSS classes are used.
+3. **Customize the `theme` option:** Modify default Tailwind CSS theme values (colors, typography, spacing, etc.).
+4. **Extend the `extend` option:** Add custom CSS classes or modify existing ones.
+5. **Add plugins:** Use plugins to extend Tailwind CSS's functionality.
+
+## 3. Tailwind.config.js Keys
+
+- **content:** Specifies the files where Tailwind CSS classes are used.
+- **theme:** Defines the default theme values.
+- **extend:** Allows you to customize existing Tailwind CSS classes or add new ones.
+- **plugins:** Enables you to use third-party plugins to extend Tailwind CSS's capabilities.
+
+## 4. .postcssrc File
+
+The `.postcssrc` file is used to configure PostCSS, a tool that processes CSS. It can be used to specify plugins and options for PostCSS, which is often used in conjunction with Tailwind CSS for additional features like autoprefixer.
+
+`-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
+`-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
