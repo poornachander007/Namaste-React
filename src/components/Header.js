@@ -1,11 +1,15 @@
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import LOGO_PATH from "../utils/images/image11.png";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [loginState, setLoginState] = useState("Login");
+
+  const { loggedInUser } = useContext(UserContext);
+  // console.log(loggedInUser);
 
   const onlineStatus = useOnlineStatus();
   return (
@@ -46,6 +50,7 @@ const Header = () => {
             {loginState}
           </button>
           {/* </li> */}
+          <li className="m-3 text-purple-800 text-xl">{loggedInUser}</li>
         </ul>
       </div>
     </div>

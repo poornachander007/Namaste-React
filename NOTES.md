@@ -539,3 +539,25 @@ The `.postcssrc` file is used to configure PostCSS, a tool that processes CSS. I
 
 `-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
 `-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
+
+## 1. Prop Drilling
+
+Prop drilling refers to the practice of passing props through multiple levels of nested components to reach a component that needs them. This can lead to complex and difficult-to-maintain code, especially in large applications.
+
+## 2. Lifting the State Up
+
+Lifting the state up involves moving shared state to a common ancestor component and passing it down as props to child components. This can help avoid prop drilling and make code more organized.
+
+## 3. Context Provider and Context Consumer
+
+- **Context Provider:** A component that makes a value available to its descendants.
+- **Context Consumer:** A component that receives the value provided by its ancestor Context Provider.
+
+Context provides a way to share data across multiple components without explicitly passing props through every level.
+
+## 4. Default Value in Context Provider
+
+If you don't provide a value to the Context Provider, it will use the default value specified when creating the Context object.
+
+`-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
+`-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`

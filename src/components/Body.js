@@ -1,11 +1,14 @@
-import { useState, useEffect } from "react";
-import RestaurantCard from "./RestaurantCard";
+import { useState, useEffect, useContext } from "react";
+import RestaurantCard, { TopRestaurantCard } from "./RestaurantCard";
 // import AllRestaurants from "../utils/mockData";
 import { FETCH_DATA_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
+
+const TopRatedRestaurantCard = TopRestaurantCard(RestaurantCard);
 
 const Body = () => {
   // const [listOfRestaurants, setAllRestaurants] = useState(AllRestaurants);
@@ -24,7 +27,7 @@ const Body = () => {
     const json = await response.json();
     // const arrayOfObjects = json?.data?.cards?.splice(3);
     const arrayOfObjects =
-      json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
     // const newArrayOfObjects = data?.data?.cards;
     //------------------------------------
@@ -39,6 +42,9 @@ const Body = () => {
     return (
       <h1>Oops!!! Seems You are On Offline, Please Check your Internet...</h1>
     );
+
+  const { loggedInUser, setUserName, userName } = useContext(UserContext);
+  // console.log(UserContext);
 
   // return listOfRestaurants.length === 0 ? (
   return listOfRestaurants == [] ? (
@@ -82,6 +88,15 @@ const Body = () => {
           >
             Search
           </button>
+          <div className="inline m-4">
+            <label>UserName : </label>
+            <input
+              className="userName px-3 rounded-lg border border-solid border-black"
+              type="text"
+              value={loggedInUser}
+              onChange={(e) => setUserName(e.target.value)}
+            />
+          </div>
         </div>
       </div>
       <div className="cards-container m-4 flex flex-wrap">
@@ -93,7 +108,11 @@ const Body = () => {
               to={"restaurant/" + obj.info.id}
               key={obj.info.id}
             >
-              <RestaurantCard resData={obj} />
+              {obj.info.avgRating >= 4.4 ? (
+                <TopRatedRestaurantCard resData={obj} />
+              ) : (
+                <RestaurantCard resData={obj} />
+              )}
             </Link>
           );
         })}
