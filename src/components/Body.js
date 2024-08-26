@@ -86,7 +86,7 @@ const Body = () => {
               setFilteredRestaurants(filteredList);
             }}
           >
-            Search
+            🏹Search
           </button>
           <div className="inline m-4">
             <label>UserName : </label>

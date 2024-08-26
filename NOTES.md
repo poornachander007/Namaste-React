@@ -561,3 +561,42 @@ If you don't provide a value to the Context Provider, it will use the default va
 
 `-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
 `-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
+
+## 1. useContext vs Redux
+
+- **useContext:** A React hook for accessing values from a Context Provider. It's suitable for simple state management within a component tree.
+- **Redux:** A more powerful state management library for complex applications. It provides features like time travel debugging, persistence, and middleware.
+
+## 2. Advantages of Redux Toolkit over Redux
+
+- **Pre-built utilities:** Redux Toolkit provides built-in utilities like `createSlice`, `createAsyncThunk`, and `createEntityAdapter`, simplifying development.
+- **Immer integration:** Uses Immer for immutable state updates, making code more concise and less error-prone.
+- **Bundled with Redux:** Comes bundled with Redux, eliminating the need for separate installations.
+
+## 3. Dispatcher
+
+A dispatcher is a function in Redux that is used to dispatch actions to the store. Actions are plain JavaScript objects that describe the changes that should be made to the state.
+
+## 4. Reducer
+
+A reducer is a pure function that takes the current state and an action as input and returns a new state. It defines how the state changes in response to actions.
+
+## 5. Slice
+
+A slice in Redux Toolkit is a pre-configured set of reducers, actions, and selectors for a specific domain of the application. It simplifies state management for smaller parts of the application.
+
+## 6. Selector
+
+A selector is a function that is used to select a specific part of the state. It helps keep the components decoupled from the store and makes it easier to manage complex state structures.
+
+## 7. createSlice and its configuration
+
+`createSlice` is a function in Redux Toolkit that generates a slice object, including reducers, actions, and selectors. It takes the following configuration options:
+
+- **name:** The name of the slice.
+- **initialState:** The initial state for the slice.
+- **reducers:** An object containing reducer functions.
+- **extraReducers:** An object containing additional reducers for asynchronous actions.
+
+`-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
+`-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`

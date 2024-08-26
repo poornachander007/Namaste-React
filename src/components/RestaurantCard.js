@@ -26,9 +26,9 @@ const RestaurantCard = (props) => {
           alt="food-image"
           src={CDN_URL + cloudinaryImageId}
         />
-        <h1 className="font-medium font-serif">{name}</h1>
+        <h1 className="font-medium font-serif line-clamp-1">{name}</h1>
         <h4>{avgRating} stars</h4>
-        <p className="text-balance line-clamp-3">{cuisines.join(", ")}</p>
+        <p className="text-balance line-clamp-2">{cuisines.join(", ")}</p>
         {/* <h4>$ {costForTwo / 100} for two</h4> */}
         <h4>{costForTwo}</h4>
         {/* <h4>{deliveryTime} minuts</h4> */}
