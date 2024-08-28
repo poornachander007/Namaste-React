@@ -11,6 +11,7 @@ const RestaurantCategory = ({ category, setShowIndex, index, showBody }) => {
 
   return (
     <div
+      data-testid="resCategory"
       className="accordion p-2 m-2 border rounded-md shadow-md border-stone-500 shadow-black text-start"
       key={category?.card?.card.title}
     >

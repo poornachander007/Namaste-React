@@ -4,6 +4,7 @@ import UserContext from "../utils/UserContext";
 
 const RestaurantCard = (props) => {
   const { resData } = props;
+  // console.log(resData);
   const {
     cloudinaryImageId,
     name,
@@ -19,7 +20,7 @@ const RestaurantCard = (props) => {
   const { loggedInUser } = useContext(UserContext);
 
   return (
-    <div className="pt-1">
+    <div data-testid="resCard" className="pt-1">
       <div className="card m-2 p-1 w-[230px] h-[350px] mx-3 bg-gray-100 rounded-xl hover:bg-gray-200">
         <img
           className="card-image w-[100%] h-[150px] rounded-lg p-1 hover:p-0"
@@ -48,7 +49,7 @@ export const TopRestaurantCard = () => {
     return (
       <div className="">
         <label className="bg-gray-500 px-2 py-1 m-3 absolute rounded-xl text-white font-medium font-sans">
-          Top Rated {`>= 4.4`}
+          Top Rated (abow 4.4)
         </label>
         <RestaurantCard {...props} />
       </div>

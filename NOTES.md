@@ -600,3 +600,34 @@ A selector is a function that is used to select a specific part of the state. It
 
 `-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
 `-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
+
+## Testing in React
+
+### 1. Types of Testing
+
+- **Unit Testing:** Testing individual components or functions in isolation.
+- **Integration Testing:** Testing the interaction between multiple components.
+- **End-to-End Testing:** Testing the entire application from the user's perspective.
+
+### 2. Enzyme
+
+Enzyme is a JavaScript testing utility for React. It provides a set of tools to render, manipulate, and assert on React components.
+
+### 3. Enzyme vs. React Testing Library
+
+- **Enzyme:** Provides a higher-level API for testing React components, making it easier to manipulate and assert on components.
+- **React Testing Library:** Focuses on testing components from the user's perspective, encouraging testing based on how users interact with the UI.
+
+### 4. Jest
+
+Jest is a JavaScript testing framework that can be used for testing React applications. It provides features like test runners, assertion libraries, and code coverage reporting.
+
+**Why use Jest?**
+
+- **Built-in features:** Comes with many built-in features for testing.
+- **Easy to set up:** Simple configuration and integration with React.
+- **Fast test runner:** Provides fast test execution.
+- **Code coverage:** Helps measure test coverage.
+
+`-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`
+`-  -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -`

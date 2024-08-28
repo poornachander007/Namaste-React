@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { addItem } from "../utils/cartSlice";
 
 const CategoryItemList = ({ itemCards }) => {
-  console.log(itemCards);
+  // console.log(itemCards);
   const dispatch = useDispatch();
   const handleAddOnclick = (item) => {
     dispatch(addItem(item));
@@ -13,6 +13,7 @@ const CategoryItemList = ({ itemCards }) => {
     <div className="accordion_body">
       {itemCards.map((item) => (
         <div
+          data-testid="foodItem"
           className="card shadow-slate-600 shadow-md flex items-center m-2 p-2 rounded-md"
           key={item?.card?.info?.id}
         >
@@ -30,6 +31,7 @@ const CategoryItemList = ({ itemCards }) => {
           </div>
           <div className=" relative w-3/12 p-4">
             <button
+              data-testid="addButton"
               className="px-4 absolute bottom-2 left-8 rounded-lg bg-white text-green-800 font-bold text-xl"
               type="button"
               onClick={() => handleAddOnclick(item)}
@@ -42,7 +44,7 @@ const CategoryItemList = ({ itemCards }) => {
               alt={item?.card?.info?.name}
             />
             {/* <img src={CDN_URL + "z0c4xpovma1qtmu4tlls"} /> */}
-            {console.log(CDN_URL, item?.card?.info?.imageId)}
+            {/* {console.log(CDN_URL, item?.card?.info?.imageId)} */}
           </div>
         </div>
       ))}

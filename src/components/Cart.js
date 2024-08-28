@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import CategoryItemList from "./CategoryItemList";
 import { clearCart } from "../utils/cartSlice";
-import EmptyCartPath from "../utils/images/emptyCart.png";
+// import EmptyCartPath from "../utils/images/emptyCart.png";
 
 const Cart = () => {
   const { cartItems } = useSelector((store) => store.cart);
@@ -37,7 +37,11 @@ const Cart = () => {
           <h1 className="text-center mt-1 text-xl font-[Monospace]">
             Cart is Empty. Add Items to Cart..!{" "}
           </h1>
-          <img className="text-center w-[400px]" src={EmptyCartPath} />
+          <img
+            className="text-center w-[300px] ml-20"
+            //  src={EmptyCartPath}
+            src="https://www.svgrepo.com/show/253038/cart-shopping-cart.svg"
+          />
         </div>
       )}
     </div>

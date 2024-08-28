@@ -67,6 +67,7 @@ const Body = () => {
         </button>
         <div>
           <input
+            data-testid="searchInput"
             value={searchInput}
             className="searchInput m-3 px-3 rounded-lg border border-solid border-black"
             type="text"
@@ -74,6 +75,7 @@ const Body = () => {
             onChange={(e) => setSearchInput(e.target.value)}
           />
           <button
+            data-testid="searchButton"
             className="my-3 px-3 rounded-lg border border-solid border-black"
             type="button"
             onClick={(e) => {
